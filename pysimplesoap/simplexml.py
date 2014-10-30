@@ -503,6 +503,7 @@ class SimpleXMLElement(object):
             self.add_child(name, value, ns=ns)
         elif value is None:  # sent a empty tag?
             child = self.add_child(name, ns=ns)
+            child['xmlns:xsi'] = 'http:/twww.w3.org/2001/XMLSchema-instance'
             child['xsi:nil'] = 'true'
         elif value in TYPE_MAP.keys():
             # add commented placeholders for simple tipes (for examples/help only)
